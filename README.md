@@ -1,97 +1,85 @@
-# Air Guitar
+<div align="center">
+  <img src="banner.png" alt="Palm Air Guitar Banner" width="100%">
+  
+  # 🎸 Palm Air Guitar
+  
+  **Turn your webcam into a virtual instrument using AI and Computer Vision.**
+  
+  [![Python](https://img.shields.io/badge/Python-3.12-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://python.org)
+  [![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
+  [![MediaPipe](https://img.shields.io/badge/MediaPipe-00A67E?style=for-the-badge&logo=google&logoColor=white)](https://google.github.io/mediapipe/)
+  [![Pygame](https://img.shields.io/badge/Pygame-F5ED00?style=for-the-badge&logo=python&logoColor=black)](https://www.pygame.org/)
 
-Air Guitar is a webcam-based gesture instrument. It uses MediaPipe hand landmarks to detect a left-hand chord shape and a right-hand strum motion, then plays the matching chord sample from the `sounds/` folder.
+</div>
 
-## Features
+---
 
-- Real-time hand tracking with MediaPipe
-- Left-hand chord detection using finger patterns
-- Right-hand strum detection across a center-line trigger zone
-- On-screen fretboard, chord label, and strum feedback
-- Chord sample playback through `pygame`
+## 🎵 About The Project
 
-## Current Chords
+Palm Air Guitar is a real-time, gesture-based virtual instrument. Using just your laptop's webcam, the application tracks your hand movements and translates them into musical chords. 
 
-The current version of `app.py` supports these chord samples:
+No strings. No picks. Just computer vision and Python.
 
-- `D.mp3`
-- `A.mp3`
-- `G.mp3`
+### ✨ Key Features
+- **Real-time Hand Tracking**: Powered by Google's MediaPipe for low-latency detection.
+- **Dynamic Chord Selection**: Fretting hand finger patterns are instantly mapped to real guitar chords.
+- **Strum Detection**: Moving your strumming hand across the virtual trigger zone plays the sound.
+- **HUD Feedback**: A sleek on-screen fretboard and chord panel guide your playing.
+- **High-Quality Audio**: Uses Pygame to play real sampled guitar `.mp3` files.
 
-If you add more chord mappings in code, place the matching audio files in `sounds/` and update the chord map.
+---
 
-## Requirements
+## 🛠️ Getting Started
 
-- Python 3.12+
-- Webcam
-- Speakers or headphones
+Follow these steps to get your local environment set up.
 
-Python packages:
+### Prerequisites
+- Python 3.12 or higher
+- A working webcam
 
-- `opencv-python`
-- `mediapipe`
-- `pygame`
+### Installation
 
-## Project Files
+1. **Clone the repository** (or download the files):
+   ```bash
+   git clone https://github.com/sumit-roblox/palm-air-guitar.git
+   cd palm-air-guitar
+   ```
 
-- `app.py`: main application
-- `hand_landmarker.task`: MediaPipe hand landmark model
-- `sounds/`: chord audio samples
+2. **Create a virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: .\venv\Scripts\Activate.ps1
+   ```
 
-## Setup
+3. **Install the dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-1. Create a virtual environment:
+---
 
-```bash
-python -m venv myenv
-```
+## 🚀 How To Play
 
-2. Activate it on Windows PowerShell:
-
-```powershell
-.\myenv\Scripts\Activate.ps1
-```
-
-3. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run
-
+Run the application:
 ```bash
 python app.py
 ```
 
-Press `q` to quit.
+### The Controls
+1. **Left Hand (Fretting):** Hold your left hand up to the camera. The combination of extended vs. curled fingers dictates the chord. (See the on-screen chord panel).
+2. **Right Hand (Strumming):** Move your right index finger up or down across the green line in the center of the screen to strum the selected chord.
+3. **Exit:** Press `Q` to close the application.
 
-## How It Works
+> **💡 Tip**: Keep your hands well-lit and clearly visible in the frame for the best tracking performance!
 
-The app processes the camera feed in real time:
+---
 
-1. The left hand is mapped to a chord using the `SHAPE_MAP` finger-pattern dictionary.
-2. The right hand triggers a strum when the index finger crosses the horizontal strum line.
-3. If a valid chord is active and the cooldown has expired, the matching sound file is played.
+## 🔮 Future Roadmap (Coming Soon!)
+- 🤘 **Headbang Strumming:** Trigger chords by headbanging using facial tracking!
+- ✋ **Finger-Count Chords:** Simplify chord selection by simply counting the number of fingers you hold up.
 
-## Troubleshooting
+---
 
-- If no sound plays, confirm the matching file exists in `sounds/` and that your system volume is not muted.
-- If the hand is not detected, improve lighting and keep both hands fully in frame.
-- If chord recognition is inconsistent, keep the left hand steady and aligned with the camera.
-- If strums do not trigger, move the right index finger more clearly across the strum line and wait for the cooldown.
-
-## GitHub Upload
-
-To publish this project to GitHub:
-
-```bash
-git status
-git add app.py README.md requirements.txt .gitignore sounds hand_landmarker.task
-git commit -m "Add air guitar app documentation"
-git branch -M main
-git remote add origin <your-repository-url>
-git push -u origin main
-```
-
-If the remote already exists, skip the `git remote add origin` line and just push.
+<div align="center">
+  <i>Built with ❤️ using Python</i>
+</div>
