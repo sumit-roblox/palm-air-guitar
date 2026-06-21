@@ -1,0 +1,69 @@
+========================================
+  AIR GUITAR — HOW TO RUN
+========================================
+
+COMMANDS
+--------
+
+1. Open Terminal and go to the project folder:
+   cd ~/Desktop/python-air-guitar
+
+2. Activate the virtual environment:
+   source venv/bin/activate
+
+3. Run the app:
+   python app.py
+
+4. To quit: press Q on your keyboard.
+
+   (Optional) To suppress harmless startup warnings:
+   python app.py 2>/dev/null
+
+
+========================================
+  HOW IT WORKS
+========================================
+
+The app uses your webcam to turn hand gestures into guitar chords.
+
+LEFT HAND — picks the chord
+   Hold your left hand up in front of the camera.
+   The app reads which fingers are extended or curled
+   and maps that pattern to a chord name (D, A, G, C, E, etc.)
+   The active chord is shown top-left and highlighted in the side panel.
+
+RIGHT HAND — strums the chord
+   A horizontal green line runs across the right half of the screen.
+   Move your right index finger UP or DOWN across that line to strum.
+   If a valid chord is active, the matching sound plays.
+   A red flash on the strum line confirms the strum was detected.
+
+CHORD MAP (left hand finger pattern: thumb index middle ring pinky)
+   D     →  0 1 1 1 0
+   A     →  0 0 1 1 1
+   G     →  0 1 1 0 1
+   C     →  0 0 0 0 0  (all fingers curled)
+   E     →  1 1 1 1 1  (all fingers open)
+   Am    →  0 1 0 0 0  (index finger only)
+   Em    →  0 0 1 0 0  (middle finger only)
+   C#    →  0 0 0 1 1  (ring + pinky)
+   Dm7   →  0 1 0 1 0  (index + ring)
+   D#m7  →  0 1 0 0 1  (index + pinky)
+   1 = finger extended, 0 = finger curled
+
+TIPS
+   - Keep your left hand steady and well-lit for best detection.
+   - Move your right index finger clearly and deliberately across the line.
+   - There is a 0.3 second cooldown between strums to avoid double-triggers.
+   - If no sound plays, check that your system volume is not muted.
+
+
+========================================
+  FILES IN THIS PROJECT
+========================================
+
+   app.py                — main application code
+   hand_landmarker.task  — MediaPipe hand detection model
+   sounds/               — chord audio files (14 mp3s)
+   requirements.txt      — Python package dependencies
+   venv/                 — virtual environment (do not edit)
