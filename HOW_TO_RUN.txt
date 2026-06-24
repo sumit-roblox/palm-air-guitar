@@ -39,9 +39,7 @@ RIGHT HAND — strums the chord
    A red flash on the strum line confirms the strum was detected.
 
 CHORD MAP (left hand finger pattern: thumb index middle ring pinky)
-   D     →  0 1 1 1 0
-   A     →  0 0 1 1 1
-   G     →  0 1 1 0 1
+
    C     →  0 0 0 0 0  (all fingers curled)
    E     →  1 1 1 1 1  (all fingers open)
    Am    →  0 1 0 0 0  (index finger only)
